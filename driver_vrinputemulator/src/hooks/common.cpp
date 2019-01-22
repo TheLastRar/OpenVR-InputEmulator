@@ -22,9 +22,9 @@ std::shared_ptr<InterfaceHooks> InterfaceHooks::hookInterface(void* interfaceRef
 	if (interfaceVersion.compare("IVRDriverContext") == 0) {
 		retval = IVRDriverContextHooks::createHooks(interfaceRef);
 	} else if (interfaceVersion.compare("IVRServerDriverHost_004") == 0) {
-		LOG(ERROR) << interfaceVersion;
+		//Actual IVRServerDriverHost_004 get wrapped to IVRServerDriverHost_005
+		//Which we already hook
 		//retval = IVRServerDriverHost004Hooks::createHooks(interfaceRef);
-
 	} else if (interfaceVersion.compare("IVRServerDriverHost_005") == 0) {
 		retval = IVRServerDriverHost005Hooks::createHooks(interfaceRef);
 	//Note: Skelatal input not supported on any version
